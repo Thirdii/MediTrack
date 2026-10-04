@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\Admin\PharmacyForm;
+use App\Livewire\Admin\PharmacyIndex;
+use App\Livewire\Admin\UserForm;
+use App\Livewire\Admin\UserIndex;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\ResetPassword;
@@ -59,8 +63,15 @@ Route::middleware(['auth', 'active'])->group(function () {
     Route::middleware('admin')->group(function () {
 
         // Pharmacies
+        Route::get('pharmacies', PharmacyIndex::class)->name('pharmacies.index');
+        Route::get('pharmacies/create', PharmacyForm::class)->name('pharmacies.create');
+        Route::get('pharmacies/{pharmacy}/edit', PharmacyForm::class)->name('pharmacies.edit');
+        Route::get('pharmacies/{pharmacy}', PharmacyForm::class)->name('pharmacies.show');
 
         // Users
+        Route::get('users', UserIndex::class)->name('users.index');
+        Route::get('users/create', UserForm::class)->name('users.create');
+        Route::get('users/{user}/edit', UserForm::class)->name('users.edit');
 
         // Audit Logs
 
