@@ -50,7 +50,6 @@
 </a>
 
 {{-- Stock In --}}
-@if(\Illuminate\Support\Facades\Route::has('stock-in.create'))
 <a href="{{ route('stock-in.create') }}"
    class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors {{ str_starts_with($currentRoute, 'stock-in') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -58,10 +57,8 @@
     </svg>
     Stock In
 </a>
-@endif
 
 {{-- Stock Out --}}
-@if(\Illuminate\Support\Facades\Route::has('stock-out.create'))
 <a href="{{ route('stock-out.create') }}"
    class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors {{ str_starts_with($currentRoute, 'stock-out') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -69,10 +66,8 @@
     </svg>
     Stock Out
 </a>
-@endif
 
 {{-- Transactions --}}
-@if(\Illuminate\Support\Facades\Route::has('transactions.index'))
 <a href="{{ route('transactions.index') }}"
    class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors {{ str_starts_with($currentRoute, 'transactions') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -80,31 +75,24 @@
     </svg>
     Transactions
 </a>
-@endif
 
 {{-- Adjustment --}}
-@if(\Illuminate\Support\Facades\Route::has('adjustment.create'))
 <a href="{{ route('adjustment.create') }}"
    class="flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors {{ str_starts_with($currentRoute, 'adjustment') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }} pl-11">
     Adjustment
 </a>
-@endif
 
 {{-- Damaged --}}
-@if(\Illuminate\Support\Facades\Route::has('damaged.create'))
 <a href="{{ route('damaged.create') }}"
    class="flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors {{ str_starts_with($currentRoute, 'damaged') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }} pl-11">
     Damaged
 </a>
-@endif
 
 {{-- Expired --}}
-@if(\Illuminate\Support\Facades\Route::has('expired.create'))
 <a href="{{ route('expired.create') }}"
    class="flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-colors {{ str_starts_with($currentRoute, 'expired') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900' }} pl-11">
     Expired
 </a>
-@endif
 
 <div class="pt-4 pb-1">
     <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Monitoring</p>

@@ -1,0 +1,69 @@
+<div>
+    <div class="flex items-center gap-3 mb-6">
+        <a href="{{ route('transactions.index') }}" class="text-gray-400 hover:text-gray-600">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+        </a>
+        <h2 class="text-2xl font-bold text-gray-900">Record Expired Stock Removal</h2>
+    </div>
+
+    <form wire:submit="save" class="bg-white rounded-lg border border-gray-200 p-6 max-w-2xl">
+        <div class="p-3 bg-red-50 border border-red-200 rounded-lg mb-6 text-sm text-red-800">
+            Record disposal of expired stock. This removes quantity from inventory records. Expired batches are never used for normal Stock Out.
+        </div>
+
+        <div class="space-y-6">
+            <div>
+                <label for="medicine_id" class="block text-sm font-medium text-gray-700 mb-1">Medicine <span class="text-red-500">*</span></label>
+                <select wire:model.live="medicine_id" id="medicine_id"
+                        class="w-full rounded-lg border-gray-300 text-sm focus:border-emerald-500 focus:ring-emerald-500">
+                    <option value="">Select Medicine</option>
+                    @foreach($medicines as $med)
+                        <option value="{{ $med->id }}">{{ $med->display_name }}</option>
+                    @endforeach
+                </select>
+                @error('medicine_id') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
+            </div>
+
+            <div>
+                <label for="batch_id" class="block text-sm font-medium text-gray-700 mb-1">Batch <span class="text-red-500">*</span></label>
+                <select wire:model="batch_id" id="batch_id"
+                        class="w-full rounded-lg border-gray-300 text-sm focus:border-emerald-500 focus:ring-emerald-500">
+                    <option value="">Select Batch</option>
+                    @foreach($batches as $batch)
+                        <option value="{{ $batch->id }}">
+                            {{ $batch->batch_number }} — {{ $batch->quantity }} units, exp {{ $batch->expiration_date->format('M d, Y') }}
+                            @if($batch->is_expired) (EXPIRED) @endif
+                        </option>
+                    @endforeach
+                </select>
+                @error('batch_id') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
+            </div>
+
+            <div>
+                <label for="quantity" class="block text-sm font-medium text-gray-700 mb-1">Quantity to Remove <span class="text-red-500">*</span></label>
+                <input wire:model="quantity" type="number" id="quantity" min="1"
+                       class="w-full rounded-lg border-gray-300 text-sm focus:border-emerald-500 focus:ring-emerald-500">
+                @error('quantity') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
+            </div>
+
+            <div>
+                <label for="remarks" class="block text-sm font-medium text-gray-700 mb-1">Remarks <span class="text-red-500">*</span></label>
+                <textarea wire:model="remarks" id="remarks" rows="3"
+                          class="w-full rounded-lg border-gray-300 text-sm focus:border-emerald-500 focus:ring-emerald-500"
+                          placeholder="Disposal notes"></textarea>
+                @error('remarks') <p class="mt-1 text-sm text-red-600">{{ $message }}</p> @enderror
+            </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-gray-200 flex items-center justify-end gap-3">
+            <a href="{{ route('transactions.index') }}"
+               class="px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">Cancel</a>
+            <button type="submit"
+                    class="px-4 py-2.5 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors">
+                Record Expired Removal
+            </button>
+        </div>
+    </form>
+</div>

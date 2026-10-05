@@ -7,6 +7,12 @@ use App\Livewire\Admin\UserIndex;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\ResetPassword;
+use App\Livewire\Inventory\AdjustmentForm;
+use App\Livewire\Inventory\DamagedForm;
+use App\Livewire\Inventory\ExpiredForm;
+use App\Livewire\Inventory\StockInForm;
+use App\Livewire\Inventory\StockOutForm;
+use App\Livewire\Inventory\TransactionIndex;
 use App\Livewire\Medicine\MedicineForm;
 use App\Livewire\Medicine\MedicineIndex;
 use App\Livewire\Medicine\MedicineShow;
@@ -98,6 +104,12 @@ Route::middleware(['auth', 'active'])->group(function () {
     |--------------------------------------------------------------------------
     */
 
+    Route::get('stock-in/create', StockInForm::class)->name('stock-in.create');
+    Route::get('stock-out/create', StockOutForm::class)->name('stock-out.create');
+    Route::get('adjustment/create', AdjustmentForm::class)->name('adjustment.create');
+    Route::get('damaged/create', DamagedForm::class)->name('damaged.create');
+    Route::get('expired/create', ExpiredForm::class)->name('expired.create');
+    Route::get('transactions', TransactionIndex::class)->name('transactions.index');
 
     /*
     |--------------------------------------------------------------------------

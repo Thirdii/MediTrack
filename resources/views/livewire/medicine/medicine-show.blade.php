@@ -243,33 +243,27 @@
             <div class="bg-white rounded-lg border border-gray-200 p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
                 <div class="space-y-2">
-                    @if(\Illuminate\Support\Facades\Route::has('stock-in.create'))
-<a href="{{ route('stock-in.create', ['medicine' => $medicine->id]) }}"
+                    <a href="{{ route('stock-in.create', ['medicine' => $medicine->id]) }}"
                        class="flex items-center gap-2 w-full px-3 py-2 text-sm font-medium text-emerald-700 bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                         Stock In
                     </a>
-@endif
-                    @if(\Illuminate\Support\Facades\Route::has('stock-out.create'))
-<a href="{{ route('stock-out.create', ['medicine' => $medicine->id]) }}"
+                    <a href="{{ route('stock-out.create', ['medicine' => $medicine->id]) }}"
                        class="flex items-center gap-2 w-full px-3 py-2 text-sm font-medium text-blue-700 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                         </svg>
                         Stock Out
                     </a>
-@endif
-                    @if(\Illuminate\Support\Facades\Route::has('transactions.index'))
-<a href="{{ route('transactions.index', ['medicine' => $medicine->id]) }}"
+                    <a href="{{ route('transactions.index', ['medicine' => $medicine->id]) }}"
                        class="flex items-center gap-2 w-full px-3 py-2 text-sm font-medium text-gray-700 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
                         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
                         </svg>
                         View All Transactions
                     </a>
-@endif
                 </div>
             </div>
         </div>
