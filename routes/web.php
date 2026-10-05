@@ -7,6 +7,9 @@ use App\Livewire\Admin\UserIndex;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\ResetPassword;
+use App\Livewire\Medicine\MedicineForm;
+use App\Livewire\Medicine\MedicineIndex;
+use App\Livewire\Medicine\MedicineShow;
 use App\Livewire\Profile\ProfilePage;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +87,10 @@ Route::middleware(['auth', 'active'])->group(function () {
     |--------------------------------------------------------------------------
     */
 
+    Route::get('medicines', MedicineIndex::class)->name('medicines.index');
+    Route::get('medicines/create', MedicineForm::class)->name('medicines.create');
+    Route::get('medicines/{medicine}', MedicineShow::class)->name('medicines.show');
+    Route::get('medicines/{medicine}/edit', MedicineForm::class)->name('medicines.edit');
 
     /*
     |--------------------------------------------------------------------------

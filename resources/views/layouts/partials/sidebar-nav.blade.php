@@ -41,7 +41,6 @@
 </div>
 
 {{-- Medicines --}}
-@if(\Illuminate\Support\Facades\Route::has('medicines.index'))
 <a href="{{ route('medicines.index') }}"
    class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors {{ str_starts_with($currentRoute, 'medicines') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -49,7 +48,6 @@
     </svg>
     Medicines
 </a>
-@endif
 
 {{-- Stock In --}}
 @if(\Illuminate\Support\Facades\Route::has('stock-in.create'))
