@@ -4,6 +4,7 @@ use App\Livewire\Admin\PharmacyForm;
 use App\Livewire\Admin\PharmacyIndex;
 use App\Livewire\Admin\UserForm;
 use App\Livewire\Admin\UserIndex;
+use App\Livewire\Alert\AlertIndex;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\ResetPassword;
@@ -16,6 +17,7 @@ use App\Livewire\Inventory\TransactionIndex;
 use App\Livewire\Medicine\MedicineForm;
 use App\Livewire\Medicine\MedicineIndex;
 use App\Livewire\Medicine\MedicineShow;
+use App\Livewire\Notifications\NotificationIndex;
 use App\Livewire\Profile\ProfilePage;
 use Illuminate\Support\Facades\Route;
 
@@ -62,6 +64,7 @@ Route::middleware(['auth', 'active'])->group(function () {
     Route::get('profile', ProfilePage::class)->name('profile');
 
     // Notifications
+    Route::get('notifications', NotificationIndex::class)->name('notifications.index');
 
     /*
     |--------------------------------------------------------------------------
@@ -117,6 +120,7 @@ Route::middleware(['auth', 'active'])->group(function () {
     |--------------------------------------------------------------------------
     */
 
+    Route::get('alerts', AlertIndex::class)->name('alerts.index');
 
     /*
     |--------------------------------------------------------------------------
