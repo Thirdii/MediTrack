@@ -8,6 +8,7 @@ use App\Livewire\Alert\AlertIndex;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\ResetPassword;
+use App\Livewire\Dashboard\StaffDashboard;
 use App\Livewire\Inventory\AdjustmentForm;
 use App\Livewire\Inventory\DamagedForm;
 use App\Livewire\Inventory\ExpiredForm;
@@ -45,7 +46,7 @@ Route::middleware(['auth', 'active'])->group(function () {
     Route::get('/', fn () => redirect()->route('dashboard'));
 
     // Dashboard
-    Route::get('dashboard', fn () => 'MediTrack modules are being imported.')->name('dashboard');
+    Route::get('dashboard', StaffDashboard::class)->name('dashboard');
 
     // Logout
     Route::post('logout', function () {
