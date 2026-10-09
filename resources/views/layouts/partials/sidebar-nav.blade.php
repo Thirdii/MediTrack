@@ -108,7 +108,6 @@
 </a>
 
 {{-- Reports --}}
-@if(\Illuminate\Support\Facades\Route::has('reports.index'))
 <a href="{{ route('reports.index') }}"
    class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors {{ str_starts_with($currentRoute, 'reports') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -116,7 +115,6 @@
     </svg>
     Reports
 </a>
-@endif
 
 @if($isAdmin)
 <div class="pt-4 pb-1">

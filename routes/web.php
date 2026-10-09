@@ -20,6 +20,7 @@ use App\Livewire\Medicine\MedicineIndex;
 use App\Livewire\Medicine\MedicineShow;
 use App\Livewire\Notifications\NotificationIndex;
 use App\Livewire\Profile\ProfilePage;
+use App\Livewire\Report\ReportIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -129,4 +130,5 @@ Route::middleware(['auth', 'active'])->group(function () {
     |--------------------------------------------------------------------------
     */
 
+    Route::get('reports', ReportIndex::class)->name('reports.index');
 });

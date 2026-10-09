@@ -2,7 +2,7 @@
 
 Web-based pharmacy inventory application using Laravel, Livewire, MySQL, and Tailwind CSS.
 
-This repository is a phased import of an existing application. Import phase: 1/12. Commit dates record publication work.
+This repository is a phased import of an existing application. Import phase: 10/12. Commit dates record publication work.
 
 ## Local setup
 
