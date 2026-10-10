@@ -122,7 +122,6 @@
 </div>
 
 {{-- Audit Logs --}}
-@if(\Illuminate\Support\Facades\Route::has('audit-logs.index'))
 <a href="{{ route('audit-logs.index') }}"
    class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors {{ str_starts_with($currentRoute, 'audit-logs') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -130,10 +129,8 @@
     </svg>
     Audit Logs
 </a>
-@endif
 
 {{-- Settings --}}
-@if(\Illuminate\Support\Facades\Route::has('settings.index'))
 <a href="{{ route('settings.index') }}"
    class="flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors {{ str_starts_with($currentRoute, 'settings') ? 'bg-emerald-50 text-emerald-700' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900' }}">
     <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -142,5 +139,4 @@
     </svg>
     Settings
 </a>
-@endif
 @endif

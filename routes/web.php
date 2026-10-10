@@ -5,6 +5,7 @@ use App\Livewire\Admin\PharmacyIndex;
 use App\Livewire\Admin\UserForm;
 use App\Livewire\Admin\UserIndex;
 use App\Livewire\Alert\AlertIndex;
+use App\Livewire\AuditLog\AuditLogIndex;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\ResetPassword;
@@ -21,6 +22,7 @@ use App\Livewire\Medicine\MedicineShow;
 use App\Livewire\Notifications\NotificationIndex;
 use App\Livewire\Profile\ProfilePage;
 use App\Livewire\Report\ReportIndex;
+use App\Livewire\Settings\SettingsIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,8 +90,10 @@ Route::middleware(['auth', 'active'])->group(function () {
         Route::get('users/{user}/edit', UserForm::class)->name('users.edit');
 
         // Audit Logs
+        Route::get('audit-logs', AuditLogIndex::class)->name('audit-logs.index');
 
         // Settings
+        Route::get('settings', SettingsIndex::class)->name('settings.index');
     });
 
     /*
