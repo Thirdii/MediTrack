@@ -135,4 +135,12 @@ Route::middleware(['auth', 'active'])->group(function () {
     */
 
     Route::get('reports', ReportIndex::class)->name('reports.index');
+    
+});
+
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/force-migrate', function () {
+    Artisan::call('migrate', ['--force' => true]);
+    return '<pre>' . Artisan::output() . '</pre>';
 });
