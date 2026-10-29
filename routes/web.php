@@ -138,9 +138,7 @@ Route::middleware(['auth', 'active'])->group(function () {
     
 });
 
-use Illuminate\Support\Facades\Artisan;
-
-Route::get('/force-migrate', function () {
-    Artisan::call('migrate', ['--force' => true]);
-    return '<pre>' . Artisan::output() . '</pre>';
+Route::get('/force-seed', function () {
+    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+    return '<pre>' . \Illuminate\Support\Facades\Artisan::output() . '</pre>';
 });
