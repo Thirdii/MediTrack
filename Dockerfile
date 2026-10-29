@@ -1,5 +1,5 @@
 # Use the official PHP 8.2 image with Apache web server
-FROM php:8.2-apache
+FROM php:8.4-apache
 
 # Install required system dependencies and PHP extensions for Laravel
 RUN apt-get update && apt-get install -y \
